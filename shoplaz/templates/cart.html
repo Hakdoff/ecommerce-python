@@ -1,0 +1,35 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+<div class="mx-10">
+    <div class="text-center">
+        <h1>
+            Bath and Body
+        </h1><br>
+    </div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" style="width: 100px;">Image</th> <!-- Set width for Image column -->
+            <th scope="col" style="width: 250px;">Product Name</th> <!-- Set width for Product Name column -->
+            <th scope="col" style="width: 100px;">Price</th> <!-- Set width for Price column -->
+            <th scope="col" style="width: 80px;">Quantity</th> <!-- Set width for Quantity column -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for cart in carts %}
+        <tr>
+            <th scope="row"><img src="{{ cart.product_id.images.url }}" class="img-thumbnail" alt=""></th>
+            <td>{{ cart.product_id.product_name }}</td>
+            <td>{{ cart.product_id.price }}</td>
+            <td>{{ cart.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+{% endblock %}
+

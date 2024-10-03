@@ -1,0 +1,37 @@
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="row w-100">
+            <!-- Left Section (Grid 1) -->
+            <div class="col-4 d-flex align-items-center">
+                <div class="navbar navbar-expand-lg">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Categories</a>
+                        <a class="nav-item nav-link" href="#">About Us</a>
+                        <a class="nav-item nav-link disabled" href="#">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Section (Grid 2) -->
+            <div class="col-4 d-flex justify-content-center align-items-center text-center">
+                <h1 class="m-0">ShopLaz</h1>
+            </div>
+
+            <!-- Right Section (Grid 3) -->
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <div class="navbar navbar-expand-lg">
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                            <a class="nav-item nav-link" href="{% url 'cart' %}">Cart</a>
+                            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                            <a class="nav-item nav-link active" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

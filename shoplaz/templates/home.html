@@ -1,0 +1,67 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+    <div class="row justify-content-center mx-auto mb-5" style="width: 70%;">
+        <div class="col-6 col-md-4 col-lg-3 my-1">
+            <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                <a href="{% url 'home' %}" class="card-link underline-on-hover">Bath and Body</a>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 my-1">
+            <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                Labubu
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 my-1">
+            <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                Nike
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 my-1">
+            <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                Uniqlo
+            </div>
+        </div>
+    </div>
+<div class="container">
+  <div class="row">
+    {% for product in products %}
+      <div class="col-6 col-md-4 col-lg-3 my-2">  <!-- Responsive column sizes -->
+        <div class="card mb-4 d-flex flex-column justify-content-between" style="width: 100%; height: 100%;">
+          <a href="{% url 'products' product.id %}" class="card-link"><!-- Use 100% width for cards -->
+          <img src="{{ product.images.url }}" alt="{{ product.product_name }}" class="img-thumbnail">
+
+          <div class="row flex-grow-1 mb-3 m-2"> <!-- Add margin-bottom for spacing -->
+            <div class="col">
+              <h5 class="card-title">{{ product.product_name }}</h5>
+            </div>
+          </div>
+
+          <div class="row flex-grow-1 mb-3 m-2"> <!-- Add margin-bottom for spacing -->
+            <div class="col">
+              <p class="card-text">{{ product.category }}</p>
+            </div>
+          </div>
+
+          <div class="row flex-grow-1 align-items-end mb-3 m-2"> <!-- Add margin-bottom for spacing -->
+            <div class="col">
+              <p class="card-text">{{ product.price }}</p>
+            </div>
+          </div>
+
+          <div class="row flex-grow-1 align-items-end mb-3 m-2"> <!-- Keep existing margin -->
+            <div class="col">
+              <p class="card-text btn btn-secondary text-white">Add to Cart</p>
+            </div>
+          </div>
+</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% endblock %}
+
